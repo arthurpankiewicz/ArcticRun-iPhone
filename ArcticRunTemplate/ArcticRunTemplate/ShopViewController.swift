@@ -22,14 +22,15 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
     var current = 0
     
     var tableData: [String] = ["500", "1000", "2000", "3000", "4000", "5000", "10000", "12500",
-        "15000", "17500", "20000", "25000", "30000", "35000", "40000", "50000"]
+        "15000", "17500", "20000", "25000", "30000", "35000", "40000"]
 
     var images = [UIImage(named: "Beetroot_Soup"), UIImage(named: "Bread"), UIImage(named: "Fish"),
                     UIImage(named: "Mushroom_Stew"), UIImage(named: "Cooked_Chicken"), UIImage(named: "Cooked_Fish"),
                     UIImage(named: "Cooked_Porkchop"), UIImage(named: "health_potion"), UIImage(named: "Hat"),
                     UIImage(named: "Coat"), UIImage(named: "iron_axe"), UIImage(named: "Iron_Pickaxe"),
                     UIImage(named: "Leather_Boots"), UIImage(named: "Leather_helmet"), UIImage(named: "Leather_Pants"),
-                    UIImage(named: "Leather_chestplate")]
+                    ]
+    //UIImage(named: "Leather_chestplate")
     
     let screenSize = UIScreen.mainScreen().bounds
     
@@ -98,7 +99,9 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell: colvwCell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! colvwCell
 
         cell.lblCell.text = tableData[indexPath.row]
-        //let image = UIImage(named: tableImages[indexPath.row])
+        cell.layer.borderColor = UIColor.blueColor().CGColor
+        cell.layer.borderWidth = 2
+        cell.layer.cornerRadius = 10
         cell.imgCell.image = images[indexPath.row]
         cell.frame.size.height = 120
         cell.frame.size.width = 120
